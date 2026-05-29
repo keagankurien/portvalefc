@@ -3,570 +3,782 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Keagan Kurien — Social Media Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<title>Port Vale FC, Social Audit 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --navy: #034694; --navy-dark: #012d68; --navy-light: #1a5fa8;
-    --gold: #c8a94a; --gold-light: #e8c96a;
-    --off-white: #f7f6f2; --light-border: #d8e4f0;
-    --text: #1a1a2e; --text-muted: #5a6a80;
-  }
-  body { font-family: 'DM Sans', sans-serif; background: var(--off-white); color: var(--text); line-height: 1.6; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  /* NAV */
-  nav { position: sticky; top: 0; z-index: 100; background: var(--navy-dark); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px; border-bottom: 2px solid var(--gold); }
-  .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: white; letter-spacing: 0.02em; flex-shrink: 0; }
-  .nav-links { display: flex; gap: 1.4rem; list-style: none; align-items: center; }
-  .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; white-space: nowrap; }
-  .nav-links a:hover { color: var(--gold-light); }
-  .nav-cv-btn { background: var(--gold) !important; color: var(--navy-dark) !important; padding: 0.3rem 0.85rem; border-radius: 6px; font-weight: 700 !important; }
-  .nav-cv-btn:hover { background: var(--gold-light) !important; }
-  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-  .hamburger span { display: block; width: 22px; height: 2px; background: white; border-radius: 2px; transition: all 0.3s; }
-  .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-  .hamburger.open span:nth-child(2) { opacity: 0; }
-  .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-  .mobile-menu { display: none; position: fixed; top: 60px; left: 0; right: 0; bottom: 0; background: var(--navy-dark); z-index: 99; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
-  .mobile-menu.open { display: flex; }
-  .mobile-menu a { color: white; text-decoration: none; font-size: 1.3rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
-  @media (max-width: 700px) { .nav-links { display: none; } .hamburger { display: flex; } }
+:root {
+  --accent:     #fab500;
+  --accent-dk:  #c99200;
+  --accent-lt:  rgba(250, 181, 0, 0.08);
+  --accent-brd: rgba(250, 181, 0, 0.28);
+  --header-bg:  #20201e;
+  --body-bg:    #ffffff;
+  --ink:        #111111;
+  --ink-mid:    #444444;
+  --ink-soft:   #777777;
+  --rule:       #e8e8e8;
+  --card-bg:    #fafafa;
+  --pos:        #15803d;
+  --neg:        #b45309;
+}
 
-  /* HERO */
-  .hero { background: var(--navy-dark); padding: 6rem 2rem 4rem; position: relative; overflow: hidden; }
-  .hero::before { content: ''; position: absolute; top: -60px; right: -60px; width: 400px; height: 400px; border-radius: 50%; border: 60px solid rgba(200,169,74,0.08); }
-  .hero-inner { max-width: 860px; margin: 0 auto; position: relative; }
-  .hero-badges { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
-  .hero-tag { display: inline-block; background: rgba(200,169,74,0.15); border: 1px solid rgba(200,169,74,0.4); color: var(--gold-light); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.35rem 0.9rem; border-radius: 2rem; }
-  .hero-tag.available { background: rgba(52,199,89,0.15); border-color: rgba(52,199,89,0.4); color: #6debb0; }
-  .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2.4rem, 6vw, 4rem); color: white; line-height: 1.1; margin-bottom: 0.5rem; }
-  .hero h1 em { color: var(--gold); font-style: italic; }
-  .hero-sub { font-size: 1.08rem; color: rgba(255,255,255,0.65); max-width: 560px; margin: 1.2rem 0 2.5rem; line-height: 1.75; }
-  .hero-stats { display: flex; gap: 2.5rem; flex-wrap: wrap; }
-  .stat-num { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--gold); }
-  .stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.08em; }
+html, body {
+  font-family: 'Inter', sans-serif;
+  background: var(--body-bg);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
 
-  /* REEL FEATURE */
-  .reel-feature { background: var(--navy-dark); padding: 0 2rem 5rem; }
-  .reel-banner { max-width: 900px; margin: 0 auto; background: linear-gradient(135deg, #0a1f4e, #034694); border: 1px solid rgba(200,169,74,0.3); border-radius: 20px; padding: 2.5rem; position: relative; overflow: hidden; }
-  .reel-banner::before { content: '▶'; position: absolute; right: -10px; top: 50%; transform: translateY(-50%); font-size: 11rem; color: rgba(200,169,74,0.05); line-height: 1; pointer-events: none; }
-  .reel-eyebrow { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-light); font-weight: 700; margin-bottom: 0.6rem; }
-  .reel-banner h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem, 4vw, 2.2rem); color: white; line-height: 1.2; margin-bottom: 0.75rem; }
-  .reel-banner h2 em { color: var(--gold); font-style: normal; }
-  .reel-banner p { color: rgba(255,255,255,0.65); font-size: 0.92rem; line-height: 1.7; max-width: 540px; }
-  .reel-stat-row { display: flex; gap: 2.5rem; margin: 1.5rem 0; flex-wrap: wrap; }
-  .reel-stat-num { font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: var(--gold); }
-  .reel-stat-lbl { font-size: 0.7rem; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.06em; }
-  .reel-cta { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--gold); color: var(--navy-dark); padding: 0.85rem 1.6rem; border-radius: 10px; font-weight: 700; font-size: 0.88rem; text-decoration: none; transition: background 0.2s, transform 0.2s; }
-  .reel-cta:hover { background: var(--gold-light); transform: translateY(-2px); }
+.wrap { max-width: 860px; margin: 0 auto; }
 
-  /* SECTIONS */
-  section { padding: 5rem 2rem; }
-  .container { max-width: 900px; margin: 0 auto; }
-  .section-label { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--navy); font-weight: 700; margin-bottom: 0.5rem; }
-  .section-title { font-family: 'DM Serif Display', serif; font-size: 2.2rem; color: var(--text); margin-bottom: 0.75rem; line-height: 1.2; }
-  .section-desc { color: var(--text-muted); font-size: 1rem; max-width: 580px; margin-bottom: 3rem; }
-  .divider { width: 40px; height: 3px; background: var(--gold); margin: 1rem 0 2.5rem; }
+/* ── HEADER ── */
+.site-header {
+  background: var(--header-bg);
+  padding: 3rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.site-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--accent);
+}
+.header-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+.logo-block { flex-shrink: 0; }
+.logo-block img {
+  width: 72px;
+  height: auto;
+  display: block;
+}
+.header-text { flex: 1; }
+.header-eyebrow {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+.header-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.9rem, 4.5vw, 3rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.05;
+  margin-bottom: 0.9rem;
+  letter-spacing: -0.02em;
+}
+.header-title em {
+  color: var(--accent);
+  font-style: normal;
+}
+.header-mission {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.4);
+  font-style: italic;
+  margin-bottom: 0.85rem;
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--accent);
+  line-height: 1.6;
+}
+.header-summary {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.75;
+  max-width: 560px;
+}
+.header-summary strong { color: rgba(255,255,255,0.85); font-weight: 500; }
+.header-meta {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.meta-tag {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
 
-  /* WORK CARDS */
-  .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
-  .work-card { background: white; border: 1px solid var(--light-border); border-radius: 12px; padding: 1.75rem; transition: transform 0.2s, box-shadow 0.2s; position: relative; overflow: hidden; }
-  .work-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--navy), var(--gold)); }
-  .work-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(3,70,148,0.12); }
-  .card-tag { display: inline-block; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 1rem; margin-bottom: 1rem; background: #eef3fc; color: var(--navy); }
-  .card-tag.video { background: #fff3e0; color: #b45309; }
-  .card-tag.growth { background: #e8f5e9; color: #2e7d32; }
-  .card-tag.partner { background: #f3e5f5; color: #6a1b9a; }
-  .card-tag.sport { background: #e3f2fd; color: #0d47a1; }
-  .work-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; }
-  .work-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
-  .metric-row { display: flex; gap: 0.75rem; margin-top: 1.2rem; }
-  .metric { flex: 1; background: var(--off-white); border-radius: 8px; padding: 0.6rem 0.5rem; text-align: center; }
-  .metric-val { font-size: 1rem; font-weight: 700; color: var(--navy); font-family: 'DM Serif Display', serif; }
-  .metric-lbl { font-size: 0.62rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+/* ── STAT STRIP ── */
+.stats-strip {
+  background: var(--accent);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+@media (max-width: 500px) { .stats-strip { grid-template-columns: repeat(2, 1fr); } }
+.stat-cell {
+  padding: 1.1rem 1rem;
+  text-align: center;
+  border-right: 1px solid rgba(0,0,0,0.12);
+}
+.stat-cell:last-child { border-right: none; }
+.stat-val {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+  margin-bottom: 0.2rem;
+}
+.stat-val.wh { color: var(--header-bg); }
+.stat-lbl {
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.55);
+}
 
-  /* SHOWCASE */
-  .showcase-section { background: white; border-top: 1px solid var(--light-border); }
-  .showcase-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-  .showcase-card { background: var(--off-white); border: 1px solid var(--light-border); border-radius: 16px; padding: 1.75rem; display: flex; flex-direction: column; gap: 1rem; }
-  .showcase-label-row { display: flex; align-items: center; justify-content: space-between; }
-  .showcase-tag { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.25rem 0.7rem; border-radius: 1rem; font-weight: 700; }
-  .showcase-tag.graphic { background: #e8f5e9; color: #2e7d32; }
-  .showcase-tag.reel { background: #e3f2fd; color: #0d47a1; }
-  .showcase-tag.viral { background: rgba(200,169,74,0.15); color: #8a6800; }
-  .showcase-account { font-size: 0.78rem; color: var(--text-muted); font-weight: 600; }
-  .showcase-title { font-size: 1.05rem; font-weight: 700; color: var(--text); }
-  .showcase-desc { font-size: 0.87rem; color: var(--text-muted); line-height: 1.65; }
-  .showcase-skills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-  .showcase-skills span { font-size: 0.72rem; padding: 0.2rem 0.6rem; border-radius: 1rem; border: 1px solid var(--light-border); color: var(--text-muted); background: white; }
-  .embed-wrap { border-radius: 12px; overflow: hidden; background: white; min-height: 200px; }
-  .showcase-link { font-size: 0.85rem; font-weight: 700; color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--light-border); padding-bottom: 0.1rem; align-self: flex-start; transition: border-color 0.2s; }
-  .showcase-link:hover { border-color: var(--navy); }
+/* ── BODY ── */
+.body-wrap { padding: 3rem 2.5rem; }
 
-  /* SKILLS */
-  .skills-section { background: var(--navy-dark); }
-  .skills-section .section-label { color: var(--gold-light); }
-  .skills-section .section-title { color: white; }
-  .skills-section .section-desc { color: rgba(255,255,255,0.5); }
-  .skills-section .divider { background: var(--gold); }
-  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
-  .skill-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 1.25rem 1.5rem; }
-  .skill-category { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold-light); font-weight: 700; margin-bottom: 0.75rem; }
-  .skill-list { list-style: none; }
-  .skill-list li { font-size: 0.88rem; color: rgba(255,255,255,0.75); padding: 0.2rem 0; }
-  .skill-list li::before { content: '— '; color: var(--gold); }
+/* ── SECTION HEADING ── */
+.section-head { margin-bottom: 1.5rem; }
+.section-eyebrow {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-dk);
+  margin-bottom: 0.35rem;
+}
+.section-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
 
-  /* TIMELINE */
-  .timeline { position: relative; padding-left: 1.5rem; }
-  .timeline::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 8px; width: 2px; background: var(--light-border); }
-  .tl-item { position: relative; margin-bottom: 2.5rem; }
-  .tl-item::before { content: ''; position: absolute; left: -1.95rem; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--navy); border: 2px solid white; box-shadow: 0 0 0 2px var(--navy); }
-  .tl-period { font-size: 0.75rem; color: var(--gold); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.3rem; }
-  .tl-role { font-size: 1.05rem; font-weight: 700; color: var(--text); }
-  .tl-org { font-size: 0.88rem; color: var(--navy); margin-bottom: 0.4rem; }
-  .tl-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; }
+/* ── DIVIDER ── */
+.divider { height: 1px; background: var(--rule); margin: 2.5rem 0; }
 
-  /* CREATOR */
-  .creator-section { background: var(--off-white); border-top: 1px solid var(--light-border); }
-  .creator-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-  .creator-card { border: 1px solid var(--light-border); border-radius: 16px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; }
-  .creator-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(3,70,148,0.1); }
-  .creator-card-header { background: var(--navy-dark); padding: 1.75rem; position: relative; overflow: hidden; }
-  .creator-card-header::after { content: ''; position: absolute; bottom: -30px; right: -30px; width: 120px; height: 120px; border-radius: 50%; border: 30px solid rgba(200,169,74,0.1); }
-  .creator-handle { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-light); font-weight: 700; margin-bottom: 0.5rem; }
-  .creator-card-header h3 { color: white; font-size: 1.15rem; font-weight: 700; margin-bottom: 0.4rem; }
-  .creator-card-header p { color: rgba(255,255,255,0.6); font-size: 0.85rem; line-height: 1.5; }
-  .creator-card-body { background: white; padding: 1.5rem 1.75rem; }
-  .creator-stat-row { display: flex; gap: 1rem; margin-bottom: 1.25rem; }
-  .creator-stat { flex: 1; background: var(--off-white); border-radius: 8px; padding: 0.65rem 0.75rem; text-align: center; }
-  .creator-stat-val { font-size: 1.15rem; font-weight: 700; color: var(--navy); font-family: 'DM Serif Display', serif; }
-  .creator-stat-lbl { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; }
-  .creator-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.25rem; }
-  .creator-tag-pill { font-size: 0.72rem; padding: 0.25rem 0.65rem; border-radius: 1rem; border: 1px solid var(--light-border); color: var(--text-muted); background: var(--off-white); }
-  .creator-body-text { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem; line-height: 1.6; }
-  .creator-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; font-weight: 700; color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--light-border); padding-bottom: 0.1rem; transition: border-color 0.2s; }
-  .creator-link:hover { border-color: var(--navy); }
+/* ── PLATFORM CARDS ── */
+.platform-list { display: flex; flex-direction: column; gap: 0.75rem; }
 
-  /* CHELSEA */
-  .football-section { background: white; border-top: 1px solid var(--light-border); }
-  .pitch-statement { background: linear-gradient(135deg, var(--navy-dark), var(--navy-light)); border-radius: 16px; padding: 3rem 2.5rem; color: white; position: relative; overflow: hidden; margin-bottom: 2.5rem; }
-  .pitch-statement::after { content: '⚽'; position: absolute; right: 2rem; bottom: 1rem; font-size: 6rem; opacity: 0.06; }
-  .pitch-statement blockquote { font-family: 'DM Serif Display', serif; font-size: clamp(1.2rem, 3vw, 1.5rem); line-height: 1.5; color: white; font-style: italic; margin-bottom: 1.5rem; }
-  .pitch-statement blockquote span { color: var(--gold-light); }
-  .pitch-statement p { font-size: 0.92rem; color: rgba(255,255,255,0.7); line-height: 1.75; max-width: 600px; }
-  .pitch-statement p + p { margin-top: 1rem; }
-  .obs-heading { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 0.4rem; }
-  .obs-sub { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.5rem; }
-  .observations-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
-  .obs-card { background: var(--off-white); border: 1px solid var(--light-border); border-radius: 12px; padding: 1.5rem; border-left: 3px solid var(--navy); }
-  .obs-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--navy); font-weight: 700; margin-bottom: 0.4rem; }
-  .obs-card h4 { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 0.4rem; }
-  .obs-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+.plat-card {
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.plat-card.open { border-color: var(--accent-brd); }
 
-  /* CONTACT */
-  .cta-section { text-align: center; padding: 5rem 2rem; }
-  .cta-section .section-desc { margin: 0 auto 2rem; }
-  .btn-primary { display: inline-block; background: var(--navy); color: white; text-decoration: none; padding: 0.9rem 2.2rem; border-radius: 8px; font-size: 0.9rem; font-weight: 700; transition: background 0.2s, transform 0.2s; }
-  .btn-primary:hover { background: var(--navy-dark); transform: translateY(-2px); }
-  .contact-grid { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
-  .contact-chip { display: flex; align-items: center; gap: 0.5rem; background: white; border: 1px solid var(--light-border); border-radius: 50px; padding: 0.5rem 1.2rem; font-size: 0.85rem; color: var(--text-muted); text-decoration: none; transition: border-color 0.2s, color 0.2s; }
-  .contact-chip:hover { border-color: var(--navy); color: var(--navy); }
-  .contact-chip span { font-weight: 600; color: var(--text); }
+.plat-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  background: var(--card-bg);
+  user-select: none;
+  gap: 1rem;
+}
+.plat-card.open .plat-card-header {
+  background: var(--accent-lt);
+  border-bottom: 1px solid var(--accent-brd);
+}
+.plat-card-left { display: flex; align-items: center; gap: 0.85rem; }
+.plat-icon {
+  width: 32px; height: 32px;
+  border-radius: 7px;
+  background: var(--header-bg);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent);
+  font-family: 'Syne', sans-serif;
+}
+.plat-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+.plat-role-short { font-size: 0.76rem; color: var(--ink-soft); margin-top: 0.05rem; }
+.plat-toggle {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  border: 1.5px solid var(--rule);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+.plat-card.open .plat-toggle {
+  border-color: var(--accent-dk);
+  color: var(--accent-dk);
+  transform: rotate(45deg);
+}
+.plat-card-body { display: none; padding: 1.25rem; background: #ffffff; }
+.plat-card.open .plat-card-body { display: block; }
 
-  footer { background: var(--navy-dark); text-align: center; padding: 2rem; color: rgba(255,255,255,0.35); font-size: 0.8rem; border-top: 2px solid var(--gold); }
+.plat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem 2rem;
+}
+@media (max-width: 540px) { .plat-grid { grid-template-columns: 1fr; } }
+.plat-field-label {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-dk);
+  margin-bottom: 0.25rem;
+}
+.plat-field-val { font-size: 0.81rem; line-height: 1.65; color: var(--ink-mid); }
+.plat-field-val strong { color: var(--ink); font-weight: 600; }
+.plat-field-val.pos { color: var(--pos); }
+.plat-field-val.neg { color: var(--neg); }
+.plat-evidence {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.ev-chip {
+  font-size: 0.68rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  background: var(--accent-lt);
+  border: 1px solid var(--accent-brd);
+  padding: 0.2rem 0.65rem;
+  border-radius: 100px;
+}
+
+/* ── TWO COL ── */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+@media (max-width: 540px) { .two-col { grid-template-columns: 1fr; } }
+
+.card {
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 1.35rem;
+  background: var(--card-bg);
+}
+.card.accent-border {
+  border-color: var(--accent-brd);
+  border-top: 2.5px solid var(--accent);
+}
+.card-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.85rem;
+}
+.card-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.card-list li {
+  font-size: 0.79rem;
+  line-height: 1.55;
+  color: var(--ink-mid);
+  padding-left: 1rem;
+  position: relative;
+}
+.card-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent-dk);
+  font-size: 0.7rem;
+  top: 0.05rem;
+}
+.rec-item { display: flex; gap: 0.7rem; align-items: flex-start; margin-bottom: 0.65rem; }
+.rec-item:last-child { margin-bottom: 0; }
+.rec-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent-dk);
+  flex-shrink: 0;
+  padding-top: 0.1rem;
+  min-width: 1.1rem;
+}
+.rec-text { font-size: 0.79rem; line-height: 1.6; color: var(--ink-mid); }
+.rec-text strong { color: var(--ink); font-weight: 600; }
+
+/* ── FUTURE BAND ── */
+.future-band {
+  background: var(--header-bg);
+  border-radius: 12px;
+  padding: 2rem;
+  border-left: 4px solid var(--accent);
+}
+.future-eyebrow {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+.future-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+.future-body { font-size: 0.82rem; line-height: 1.72; color: rgba(255,255,255,0.55); }
+.future-body strong { color: rgba(255,255,255,0.85); font-weight: 500; }
+
+/* ── TAKEAWAY ── */
+.takeaway {
+  border: 1px solid var(--accent-brd);
+  border-left: 4px solid var(--accent);
+  border-radius: 10px;
+  padding: 1.35rem 1.5rem;
+  background: var(--accent-lt);
+}
+.takeaway-text {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+.takeaway-text em { color: var(--accent-dk); font-style: normal; text-decoration: underline; text-underline-offset: 3px; }
+
+/* ── CONTACT ── */
+.contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+}
+.contact-link { font-size: 0.75rem; color: var(--ink-soft); text-decoration: none; transition: color 0.15s; }
+.contact-link:hover { color: var(--accent-dk); }
+.contact-link b { color: var(--ink-mid); font-weight: 600; }
+
+@media (max-width: 560px) {
+  .body-wrap { padding: 2rem 1.25rem; }
+  .site-header { padding: 2rem 1.25rem; }
+  .header-inner { flex-direction: column; gap: 1.25rem; }
+}
 </style>
 </head>
 <body>
+<div class="wrap">
 
-<nav>
-  <div class="nav-logo">Keagan Kurien</div>
-  <ul class="nav-links">
-    <li><a href="#work">Work</a></li>
-    <li><a href="#creator">Creating</a></li>
-    <li><a href="#showcase">Content</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#story">Story</a></li>
-    <li><a href="#football">Chelsea</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="mailto:keagan05@gmail.com?subject=CV Request" class="nav-cv-btn">↓ CV</a></li>
-  </ul>
-  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo-block">
+      <img src="https://upload.wikimedia.org/wikipedia/en/0/07/Port_Vale_FC_crest.png"
+           alt="Port Vale FC"
+           onerror="this.outerHTML='<div style=\'width:72px;height:72px;border:2px solid rgba(250,181,0,0.3);border-radius:8px;display:flex;align-items:center;justify-content:center;\'><span style=\'font-family:Syne,sans-serif;font-size:1.4rem;font-weight:800;color:#fab500\'>PV</span></div>'">
+    </div>
+    <div class="header-text">
+      <div class="header-eyebrow">Social Media Audit · May 2026</div>
+      <h1 class="header-title">Port <em>Vale FC</em></h1>
+      <div class="header-mission">"To be a successful club, on and off the pitch, which is at the heart of our community."</div>
+      <p class="header-summary">
+        Port Vale's social presence is grounded, community-led, and visually coherent. Those things take longer to build than a follower count and they are genuinely present here. The channels do not shout. The content does not oversell. <strong>The opportunity is not a change of direction. It is giving the existing identity more to work with, and using the channels to keep supporters close through a difficult season in League Two.</strong>
+      </p>
+
+    </div>
   </div>
-</nav>
+</header>
 
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#work" onclick="toggleMenu()">Work</a>
-  <a href="#creator" onclick="toggleMenu()">Creating</a>
-  <a href="#showcase" onclick="toggleMenu()">Content</a>
-  <a href="#skills" onclick="toggleMenu()">Skills</a>
-  <a href="#story" onclick="toggleMenu()">Story</a>
-  <a href="#football" onclick="toggleMenu()">Chelsea</a>
-  <a href="#contact" onclick="toggleMenu()">Contact</a>
-  <a href="mailto:keagan05@gmail.com?subject=CV Request" style="color:var(--gold-light)">↓ Download CV</a>
-</div>
-
-<div class="hero">
-  <div class="hero-inner">
-    <div class="hero-badges">
-      <span class="hero-tag">Social Media & Content</span>
-      <span class="hero-tag available">● Open to roles — Summer 2026</span>
-    </div>
-    <h1>Publishing content.<br><em>Watching the numbers.</em><br>Doing it again.</h1>
-    <p class="hero-sub">I've spent 2.5 years in social media — scheduling, editing, testing and optimising across TikTok, Instagram, Facebook and X. One of my own reels hit 3.2 million views. I want to bring that same instinct to football.</p>
-    <div class="hero-stats">
-      <div class="stat-item">
-        <div class="stat-num">1,200%</div>
-        <div class="stat-label">Engagement uplift YoY</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">20M+</div>
-        <div class="stat-label">Impressions delivered</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">3.2M</div>
-        <div class="stat-label">Views, personal reel</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">30+</div>
-        <div class="stat-label">Videos edited</div>
-      </div>
-    </div>
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stat-cell">
+    <div class="stat-val">54K</div>
+    <div class="stat-lbl">Instagram followers</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-val">91K</div>
+    <div class="stat-lbl">Facebook followers</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-val">42.2K</div>
+    <div class="stat-lbl">TikTok followers</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-val">883.2K</div>
+    <div class="stat-lbl">TikTok total likes</div>
   </div>
 </div>
 
-<div class="reel-feature">
-  <div class="reel-banner">
-    <div class="reel-eyebrow">Featured content</div>
-    <h2>3.2 <em>million</em> views.<br>No budget. Just the right reel.</h2>
-    <p>A fitness reel on my personal Instagram reached 3.2 million people with zero paid spend. I understood the format, wrote a hook that stopped the scroll and got the timing right. The views are the proof — but knowing why it worked is what I can actually use. That transfers to any platform, any brand, any matchday moment.</p>
-    <div class="reel-stat-row">
-      <div><div class="reel-stat-num">3.2M</div><div class="reel-stat-lbl">Organic views</div></div>
-      <div><div class="reel-stat-num">£0</div><div class="reel-stat-lbl">Paid spend</div></div>
-      <div><div class="reel-stat-num">Reels</div><div class="reel-stat-lbl">Format</div></div>
-    </div>
-    <!-- UPDATE THIS LINK to the direct reel URL once you have it -->
-    <a href="https://www.instagram.com/thekeaganproject/" target="_blank" class="reel-cta">▶ Watch the reel</a>
-  </div>
-</div>
+<div class="body-wrap">
 
-<section id="work">
-  <div class="container">
-    <div class="section-label">Portfolio highlights</div>
-    <h2 class="section-title">Work that drove results</h2>
-    <div class="divider"></div>
-    <p class="section-desc">A cross-section of projects — publishing, video editing, analytics, partner content — across the platforms and formats that matter most in football social media.</p>
-    <div class="work-grid">
-      <div class="work-card">
-        <span class="card-tag">Social Strategy</span>
-        <h3>1,200% YoY Engagement — Global Campaign</h3>
-        <p>Ran social content for a multi-market campaign across Instagram, Facebook and LinkedIn. Tested 40+ asset variants to find what worked, then scaled it. The kind of A/B process that turns guesswork into something repeatable.</p>
-        <div class="metric-row">
-          <div class="metric"><div class="metric-val">1,200%</div><div class="metric-lbl">Engagement ↑</div></div>
-          <div class="metric"><div class="metric-val">$0.11</div><div class="metric-lbl">CPC</div></div>
-          <div class="metric"><div class="metric-val">40+</div><div class="metric-lbl">Assets tested</div></div>
+  <!-- PLATFORM ANALYSIS -->
+  <div class="section-head">
+    <div class="section-eyebrow">Platform analysis</div>
+    <div class="section-title">Tap each platform to expand the audit.</div>
+  </div>
+
+  <div class="platform-list">
+
+    <!-- INSTAGRAM -->
+    <div class="plat-card" onclick="toggleCard(this)">
+      <div class="plat-card-header">
+        <div class="plat-card-left">
+          <div class="plat-icon" style="background:transparent;display:flex;align-items:center;justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ig-g" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#f09433"/><stop offset="25%" style="stop-color:#e6683c"/><stop offset="50%" style="stop-color:#dc2743"/><stop offset="75%" style="stop-color:#cc2366"/><stop offset="100%" style="stop-color:#bc1888"/></linearGradient></defs><rect x="2" y="2" width="20" height="20" rx="5.5" fill="url(#ig-g)"/><circle cx="12" cy="12" r="4.5" stroke="white" stroke-width="1.8" fill="none"/><circle cx="17.2" cy="6.8" r="1.2" fill="white"/></svg></div>
+          <div>
+            <div class="plat-name">Instagram</div>
+            <div class="plat-role-short">Primary visual channel · kit photography · community storytelling</div>
+          </div>
         </div>
+        <div class="plat-toggle">+</div>
       </div>
-      <div class="work-card">
-        <span class="card-tag video">Video Production</span>
-        <h3>30+ Short-Form Videos — Premiere Pro</h3>
-        <p>Edited clips, reels, highlights and branded content for global distribution — vertical, square, multilingual. Not just cutting footage, but thinking about what holds attention in the first two seconds and what earns the share.</p>
-        <div class="metric-row">
-          <div class="metric"><div class="metric-val">30+</div><div class="metric-lbl">Videos edited</div></div>
-          <div class="metric"><div class="metric-val">100+</div><div class="metric-lbl">Multilingual assets</div></div>
-          <div class="metric"><div class="metric-val">23</div><div class="metric-lbl">Clients</div></div>
+      <div class="plat-card-body">
+        <div class="plat-grid">
+          <div>
+            <div class="plat-field-label">Tone of voice</div>
+            <div class="plat-field-val">Restrained and honest. Captions do not oversell. At its best, it reads like it was written by someone who actually goes to Vale Park on a Saturday.</div>
+          </div>
+          <div>
+            <div class="plat-field-label">Visual style</div>
+            <div class="plat-field-val">Valiant Black (#20201e) and Valiant Amber (#fab500) hold consistently across content types. Kit photography is close-framed, tactile, and premium for League One level.</div>
+          </div>
+          <div>
+            <div class="plat-field-label">Content themes</div>
+            <div class="plat-field-val">Kit drops · matchday · player features · World Cup call-ups · @supervaleabroad integration · kit and commercial content.</div>
+          </div>
+          <div>
+            <div class="plat-field-label">What's working</div>
+            <div class="plat-field-val pos">Visual consistency is rare at this level and it's real here. The @supervaleabroad World Cup tagging shows communications layering beyond standard posting, player, sponsor, and supporter group in one post.</div>
+          </div>
+          <div>
+            <div class="plat-field-label">What could improve</div>
+            <div class="plat-field-val neg">Vale Park itself, the physical atmosphere, the terraces, the matchday texture, is almost entirely absent. It's the most distinctive visual asset the club has, and it barely appears on the feed.</div>
+          </div>
+          <div>
+            <div class="plat-field-label">Opportunity</div>
+            <div class="plat-field-val">Document Vale Park the way the kit photography documents the shirt: close, considered, and specific. Look beyond Burslem too. Fan creators and football content accounts based internationally, including in the US where the @supervaleabroad community already exists, are an underused route to new audiences. A collaboration with a visiting football creator would reach people the club's own feed never will.</div>
+          </div>
         </div>
-      </div>
-      <div class="work-card">
-        <span class="card-tag growth">Audience Growth</span>
-        <h3>30% Instagram Growth — 4 Months</h3>
-        <p>Built and ran the content calendar for a luxury lifestyle brand's Instagram. Created 70+ assets, checked the numbers weekly, changed what wasn't working. Simple process, consistent output, real results.</p>
-        <div class="metric-row">
-          <div class="metric"><div class="metric-val">+30%</div><div class="metric-lbl">Followers</div></div>
-          <div class="metric"><div class="metric-val">70+</div><div class="metric-lbl">Creatives</div></div>
-          <div class="metric"><div class="metric-val">4 mo</div><div class="metric-lbl">Timeline</div></div>
-        </div>
-      </div>
-      <div class="work-card">
-        <span class="card-tag partner">Partner Content</span>
-        <h3>Multi-Channel Publishing — 23 Clients</h3>
-        <p>Managed partner content publishing for 23+ international clients at once — different brand voices, different approval workflows, different time zones. 100% on-time across the board.</p>
-        <div class="metric-row">
-          <div class="metric"><div class="metric-val">100%</div><div class="metric-lbl">On-time</div></div>
-          <div class="metric"><div class="metric-val">23+</div><div class="metric-lbl">Clients</div></div>
-          <div class="metric"><div class="metric-val">20+</div><div class="metric-lbl">Countries</div></div>
-        </div>
-      </div>
-      <div class="work-card">
-        <span class="card-tag sport">Sport & Content</span>
-        <h3>Match Coverage — Football League Startup</h3>
-        <p>Produced match data and video content for a recreational football league. Posted it, tracked what it did, watched it move the commercial needle. First time I saw sport content tied directly to revenue — it stuck.</p>
-        <div class="metric-row">
-          <div class="metric"><div class="metric-val">+20%</div><div class="metric-lbl">Revenue/game</div></div>
-          <div class="metric"><div class="metric-val">$10K+</div><div class="metric-lbl">Investment secured</div></div>
-        </div>
-      </div>
-      <div class="work-card">
-        <span class="card-tag">Analytics & Reporting</span>
-        <h3>Reporting Framework — 30% Time Saved</h3>
-        <p>Built a reporting system in Hootsuite and Google Analytics that standardised performance tracking across 23+ accounts. Cut reporting time by 30%. More time making content, less time in spreadsheets.</p>
-        <div class="metric-row">
-          <div class="metric"><div class="metric-val">-30%</div><div class="metric-lbl">Reporting time</div></div>
-          <div class="metric"><div class="metric-val">-15%</div><div class="metric-lbl">Wasted spend</div></div>
+        <div class="plat-evidence">
+          <span class="ev-chip">PVFC kit post, 643 likes · 70 saves</span>
+          <span class="ev-chip">World Cup post, 964 likes · @supervaleabroad integrated</span>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<section id="creator" class="creator-section">
-  <div class="container">
-    <div class="section-label">Beyond the day job</div>
-    <h2 class="section-title">Creating on my own terms</h2>
-    <div class="divider"></div>
-    <p class="section-desc">Both accounts started because I wanted to, not because I had to. That's usually when you learn the most about what actually makes content work.</p>
-    <div class="creator-grid">
-      <div class="creator-card">
-        <div class="creator-card-header">
-          <div class="creator-handle">@thekeaganproject</div>
-          <h3>Fitness & lifestyle content</h3>
-          <p>Gym progress, meals, training — posted consistently, tracked what landed, kept going.</p>
-        </div>
-        <div class="creator-card-body">
-          <div class="creator-stat-row">
-            <div class="creator-stat"><div class="creator-stat-val">3.2M</div><div class="creator-stat-lbl">Views, single reel</div></div>
-            <div class="creator-stat"><div class="creator-stat-val">Organic</div><div class="creator-stat-lbl">No paid spend</div></div>
+    <!-- X/TWITTER -->
+    <div class="plat-card" onclick="toggleCard(this)">
+      <div class="plat-card-header">
+        <div class="plat-card-left">
+          <div class="plat-icon" style="background:#000000;display:flex;align-items:center;justify-content:center;"><svg width="17" height="17" viewBox="0 0 24 24" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L2.25 2.25h6.894l4.261 5.636 4.839-5.636Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
+          <div>
+            <div class="plat-name">X / Twitter</div>
+            <div class="plat-role-short">Real-time matchday channel · where belief builds during a promotion run</div>
           </div>
-          <div class="creator-tags">
-            <span class="creator-tag-pill">Short-form video</span>
-            <span class="creator-tag-pill">Reels</span>
-            <span class="creator-tag-pill">Hook writing</span>
-            <span class="creator-tag-pill">Trend formats</span>
-          </div>
-          <p class="creator-body-text">One reel hit 3.2 million views with no budget. I didn't plan for it to blow up — I just understood the format, wrote a hook that worked and got the timing right. Knowing why it worked is what I can take anywhere.</p>
-          <a href="https://www.instagram.com/thekeaganproject/" class="creator-link" target="_blank">View on Instagram ↗</a>
         </div>
+        <div class="plat-toggle">+</div>
       </div>
-      <div class="creator-card">
-        <div class="creator-card-header">
-          <div class="creator-handle">@true.blueballer</div>
-          <h3>Chelsea FC football content</h3>
-          <p>Match reactions, rankings, analysis, graphics — the kind of content I'd want to scroll past.</p>
-        </div>
-        <div class="creator-card-body">
-          <div class="creator-stat-row">
-            <div class="creator-stat"><div class="creator-stat-val">Active</div><div class="creator-stat-lbl">Currently building</div></div>
-            <div class="creator-stat"><div class="creator-stat-val">CFC</div><div class="creator-stat-lbl">Fan-first content</div></div>
+      <div class="plat-card-body">
+        <div class="plat-grid">
+          <div>
+            <div class="plat-field-label">Tone of voice</div>
+            <div class="plat-field-val">Functional and direct. Consistent with the wider brand voice. Understated rather than excitable, which suits the club and should be kept that way.</div>
           </div>
-          <div class="creator-tags">
-            <span class="creator-tag-pill">Matchday content</span>
-            <span class="creator-tag-pill">Reactive posts</span>
-            <span class="creator-tag-pill">Branded graphics</span>
-            <span class="creator-tag-pill">Football analysis</span>
+          <div>
+            <div class="plat-field-label">Visual style</div>
+            <div class="plat-field-val">Brand colour consistency carries across to result templates. Amber-black identity reads correctly without being forced.</div>
           </div>
-          <p class="creator-body-text">Started this because I wanted to make Chelsea content I actually thought was good — reactive when the moment called for it, considered when it didn't. Running it has given me a real feel for what Chelsea fans respond to and what falls flat.</p>
-          <a href="https://www.instagram.com/true.blueballer/" class="creator-link" target="_blank">View on Instagram ↗</a>
+          <div>
+            <div class="plat-field-label">Content themes</div>
+            <div class="plat-field-val">Match updates · results · team news · commercial announcements · player milestones.</div>
+          </div>
+          <div>
+            <div class="plat-field-label">What's working</div>
+            <div class="plat-field-val pos">The voice is consistent and on-brand. Doesn't perform excitement the moment doesn't call for. The amber-black identity holds without being forced across different content types.</div>
+          </div>
+          <div>
+            <div class="plat-field-label">What could improve</div>
+            <div class="plat-field-val neg">After relegation, the temptation is to go quiet. It is usually the wrong call. Supporters want to feel the club is still communicating and still believes in what comes next.</div>
+          </div>
+          <div>
+            <div class="plat-field-label">Opportunity</div>
+            <div class="plat-field-val">In a rebuilding season, X is where supporter belief gets managed day to day. Honest, consistent posting around match reactions, small wins, and community moments keeps people close during a difficult year.</div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<section id="showcase" class="showcase-section">
-  <div class="container">
-    <div class="section-label">Actual work</div>
-    <h2 class="section-title">Content I've made</h2>
-    <div class="divider"></div>
-    <p class="section-desc">Three pieces that show different sides of what I can do — graphic design, vertical video editing and organic reach.</p>
-
-    <div class="showcase-grid">
-
-      <!-- POST 1: Real Madrid graphic -->
-      <div class="showcase-card">
-        <div class="showcase-label-row">
-          <span class="showcase-tag graphic">Graphic Design</span>
-          <span class="showcase-account">@true.blueballer</span>
+    <!-- TIKTOK -->
+    <div class="plat-card" onclick="toggleCard(this)">
+      <div class="plat-card-header">
+        <div class="plat-card-left">
+          <div class="plat-icon" style="background:#010101;display:flex;align-items:center;justify-content:center;"><svg width="17" height="17" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.74a4.85 4.85 0 01-1.01-.05z" fill="white"/></svg></div>
+          <div>
+            <div class="plat-name">TikTok</div>
+            <div class="plat-role-short">Audience growth · youth engagement · promotion momentum</div>
+          </div>
         </div>
-        <h3 class="showcase-title">Real Madrid Is Imploding</h3>
-        <p class="showcase-desc">A multi-slide editorial graphic breaking down Real Madrid's squad crisis. Built in Canva — bold typography, clear brand identity, strong editorial hook. The kind of content that travels because it has a take, not just information.</p>
-        <div class="showcase-skills">
-          <span>Graphic design</span><span>Editorial hook</span><span>Brand consistency</span><span>Carousel format</span>
-        </div>
-        <div class="embed-wrap">
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DYIKOuGjGRD/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:0;max-width:100%;min-width:326px;padding:0;width:100%;"></blockquote>
-        </div>
-        <a href="https://www.instagram.com/p/DYIKOuGjGRD/" target="_blank" class="showcase-link">View on Instagram ↗</a>
+        <div class="plat-toggle">+</div>
       </div>
-
-      <!-- POST 2: Game sense / Enzo reel -->
-      <div class="showcase-card">
-        <div class="showcase-label-row">
-          <span class="showcase-tag reel">Vertical Video</span>
-          <span class="showcase-account">@true.blueballer</span>
+      <div class="plat-card-body">
+        <div class="plat-grid">
+          <div>
+            <div class="plat-field-label">Tone of voice</div>
+            <div class="plat-field-val">Looser than Instagram. Player personality and behind-the-scenes access land better here. The club's people-centred values translate naturally into TikTok's preferred register.</div>
+          </div>
+          <div>
+            <div class="plat-field-label">Visual style</div>
+            <div class="plat-field-val">Authenticity-first, appropriate for the platform. Amber-black identity should be present in framing without dominating the format or making it feel like a branded asset.</div>
+          </div>
+          <div>
+            <div class="plat-field-label">Content themes</div>
+            <div class="plat-field-val">Player features, matchday prep, dressing room access, skills clips, fan journey content. A League Two season still generates compelling short-form material. Resilience, community, and the characters inside a club are exactly what TikTok audiences respond to.</div>
+          </div>
+          <div>
+            <div class="plat-field-label">What's working</div>
+            <div class="plat-field-val pos">Port Vale has the personality and the stories. The community-first identity is a genuine TikTok asset. Not every club has it. The ground, the town, and the people are all there waiting to be shown.</div>
+          </div>
+          <div>
+            <div class="plat-field-label">What could improve</div>
+            <div class="plat-field-val neg">No consistent posting rhythm visible from the outside. Without a repeatable format, growth comes in one-off spikes rather than the steady habit-building that actually moves the follower count.</div>
+          </div>
+          <div>
+            <div class="plat-field-label">Opportunity</div>
+            <div class="plat-field-val">A weekly matchday behind-the-scenes format, low cost, high authenticity, would be a direct pipeline from the promotion narrative into shareable content.</div>
+          </div>
         </div>
-        <h3 class="showcase-title">Game Sense — Enzo Fernández</h3>
-        <p class="showcase-desc">Split-screen format with match footage on top, talking-head analysis below. Text overlays timed to the point being made. This is a platform-native format — the kind of edit that fits how football fans actually watch content on Instagram and TikTok.</p>
-        <div class="showcase-skills">
-          <span>Split-screen editing</span><span>Text overlays</span><span>Vertical video</span><span>Football analysis</span>
-        </div>
-        <div class="embed-wrap">
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DYfo7LXMGw7/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:0;max-width:100%;min-width:326px;padding:0;width:100%;"></blockquote>
-        </div>
-        <a href="https://www.instagram.com/p/DYfo7LXMGw7/" target="_blank" class="showcase-link">View on Instagram ↗</a>
       </div>
-
-      <!-- POST 3: 3.2M reel -->
-      <div class="showcase-card">
-        <div class="showcase-label-row">
-          <span class="showcase-tag viral">3.2M Views</span>
-          <span class="showcase-account">@thekeaganproject</span>
-        </div>
-        <h3 class="showcase-title">The Reel That Hit 3.2 Million</h3>
-        <p class="showcase-desc">No paid spend. No big following. Just a hook that stopped the scroll, a format that matched the moment and timing that worked. Understanding why it blew up is more useful than the number itself — and it's the same instinct I'd bring to matchday content.</p>
-        <div class="showcase-skills">
-          <span>Hook writing</span><span>Organic reach</span><span>Short-form video</span><span>Reels format</span>
-        </div>
-        <div class="embed-wrap">
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DW8sJoCsPjK/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:0;max-width:100%;min-width:326px;padding:0;width:100%;"></blockquote>
-        </div>
-        <a href="https://www.instagram.com/p/DW8sJoCsPjK/" target="_blank" class="showcase-link">View on Instagram ↗</a>
-      </div>
-
     </div>
-  </div>
-</section>
-<script async src="//www.instagram.com/embed.js"></script>
 
-<section id="skills" class="skills-section">
-  <div class="container">
-    <div class="section-label">Capabilities</div>
-    <h2 class="section-title">Platform & production skills</h2>
-    <div class="divider"></div>
-    <div class="skills-grid">
-      <div class="skill-card">
-        <div class="skill-category">Platforms</div>
-        <ul class="skill-list">
-          <li>TikTok</li><li>Instagram & Reels</li><li>Facebook</li>
-          <li>X (Twitter)</li><li>WhatsApp Channels</li><li>LinkedIn</li>
+    <!-- FACEBOOK -->
+    <div class="plat-card" onclick="toggleCard(this)">
+      <div class="plat-card-header">
+        <div class="plat-card-left">
+          <div class="plat-icon" style="background:#1877F2;display:flex;align-items:center;justify-content:center;"><svg width="17" height="17" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="white"/></svg></div>
+          <div>
+            <div class="plat-name">Facebook</div>
+            <div class="plat-role-short">Community channel · established supporter base · longer-form content</div>
+          </div>
+        </div>
+        <div class="plat-toggle">+</div>
+      </div>
+      <div class="plat-card-body">
+        <div class="plat-grid">
+          <div>
+            <div class="plat-field-label">Tone of voice</div>
+            <div class="plat-field-val">Consistent with the wider brand voice. Comment culture from supporters is active, though the club's participation in those threads appears limited. Listening more would cost nothing.</div>
+          </div>
+          <div>
+            <div class="plat-field-label">Visual style</div>
+            <div class="plat-field-val">Content largely cross-posted from other channels. The amber-black palette holds by default. No Facebook-native formatting or approach is evident.</div>
+          </div>
+          <div>
+            <div class="plat-field-label">Content themes</div>
+            <div class="plat-field-val">Match results · kit and commercial announcements · community foundation activity. Facebook is the natural home for foundation coverage given the demographic.</div>
+          </div>
+          <div>
+            <div class="plat-field-label">What's working</div>
+            <div class="plat-field-val pos">The loyal supporter base on Facebook is exactly the audience for community stories and heritage content. Reach is lower. Intent is high.</div>
+          </div>
+          <div>
+            <div class="plat-field-label">What could improve</div>
+            <div class="plat-field-val neg">No Facebook-native content strategy. Longer-form video, match recaps, and community foundation features are not being used on the platform that suits them best.</div>
+          </div>
+          <div>
+            <div class="plat-field-label">Opportunity</div>
+            <div class="plat-field-val">A monthly community foundation feature, written for Facebook, not cropped from Instagram, would be low cost and high relevance with this audience.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- YOUTUBE -->
+    <div class="plat-card" onclick="toggleCard(this)">
+      <div class="plat-card-header">
+        <div class="plat-card-left">
+          <div class="plat-icon" style="background:#FF0000;display:flex;align-items:center;justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="white"/></svg></div>
+          <div>
+            <div class="plat-name">YouTube</div>
+            <div class="plat-role-short">Long-form content, fan journeys, creator partnerships</div>
+          </div>
+        </div>
+        <div class="plat-toggle">+</div>
+      </div>
+      <div class="plat-card-body">
+        <div class="plat-grid">
+          <div>
+            <div class="plat-field-label">Tone of voice</div>
+            <div class="plat-field-val">Documentary and editorial when at its best. The club's values, tenacious, people-centred, valiant, translate naturally into long-form video storytelling.</div>
+          </div>
+          <div>
+            <div class="plat-field-label">Visual style</div>
+            <div class="plat-field-val">Applying the amber-black palette consistently to thumbnails would improve discoverability without additional production spend. A simple template would do it.</div>
+          </div>
+          <div>
+            <div class="plat-field-label">Content themes</div>
+            <div class="plat-field-val">Match highlights, player and manager interviews, academy content, community stories, fan journey documentaries. A Port Vale supporter from the USA travelling to Burslem to watch their first ever live match is exactly the kind of content that earns views well outside the existing fanbase.</div>
+          </div>
+          <div>
+            <div class="plat-field-label">What's working</div>
+            <div class="plat-field-val pos">Academy pathways, community work, Vale Park's physical character, genuinely compelling long-form material that only this club has access to. The raw stories are strong.</div>
+          </div>
+          <div>
+            <div class="plat-field-label">What could improve</div>
+            <div class="plat-field-val neg">Without a recurring format, YouTube builds view spikes rather than subscriber habits. A reason for people to return each week beyond match recaps is missing.</div>
+          </div>
+          <div>
+            <div class="plat-field-label">Opportunity</div>
+            <div class="plat-field-val">A US-based supporter's first trip to Vale Park, documented from the airport to the final whistle, is exactly the kind of video that travels globally. It costs almost nothing to produce and earns far more reach than any match highlight will. Partnering with football content creators in this space, ground-hopping accounts, lower-league YouTube channels, travel vlogs through football, amplifies it further. The community identity is the hook. It is already there.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LINKEDIN -->
+    <div class="plat-card" onclick="toggleCard(this)">
+      <div class="plat-card-header">
+        <div class="plat-card-left">
+          <div class="plat-icon" style="background:#0A66C2;display:flex;align-items:center;justify-content:center;"><svg width="17" height="17" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="white"/></svg></div>
+          <div>
+            <div class="plat-name">LinkedIn</div>
+            <div class="plat-role-short">B2B channel · community foundation · commercial partnerships</div>
+          </div>
+        </div>
+        <div class="plat-toggle">+</div>
+      </div>
+      <div class="plat-card-body">
+        <div class="plat-grid">
+          <div>
+            <div class="plat-field-label">Tone of voice</div>
+            <div class="plat-field-val">Professional. The community mission and 150-year heritage are strong B2B positioning in the Stoke-on-Trent business community. It should read like the club's values translated into a business context, not like a press release.</div>
+          </div>
+          <div>
+            <div class="plat-field-label">Visual style</div>
+            <div class="plat-field-val">Brand guidelines provide clear corporate templates. The amber-black palette should apply consistently to LinkedIn graphics to maintain the visual identity across all channels.</div>
+          </div>
+          <div>
+            <div class="plat-field-label">Content themes</div>
+            <div class="plat-field-val">Partnership announcements · community impact · Academy employer links · commercial opportunities. Sponsor storytelling belongs here more than on any other channel.</div>
+          </div>
+          <div>
+            <div class="plat-field-label">What's working</div>
+            <div class="plat-field-val pos">"The EFL's community club" is a differentiated B2B position in the local market. Sponsors want association with genuine community work. LinkedIn is where that earns the relationships, not just the logo placement.</div>
+          </div>
+          <div>
+            <div class="plat-field-label">What could improve</div>
+            <div class="plat-field-val neg">The gap between what the club actually does in the community and what it communicates about it is the biggest missed opportunity in the portfolio. The stories exist. They are just not being told here.</div>
+          </div>
+          <div>
+            <div class="plat-field-label">Opportunity</div>
+            <div class="plat-field-val">One community impact post per month, one story, one partner, real outcomes. That is how you build commercial relationships before the conversation even starts.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /platform-list -->
+
+  <div class="divider"></div>
+
+  <!-- STANDARDS + RECS -->
+  <div class="two-col">
+    <div>
+      <div class="section-head">
+        <div class="section-eyebrow">Standards</div>
+        <div class="section-title">What good looks like</div>
+      </div>
+      <div class="card accent-border">
+        <ul class="card-list">
+          <li>Photography that treats Vale Park as a character, not just a backdrop</li>
+          <li>Supporter stories that go beyond what happened on the pitch. The people who show up every week are the story.</li>
+          <li>Partnership content that explains what the relationship actually means, not just where the logo sits</li>
+          <li>Content written for Facebook and LinkedIn specifically, not the same post pushed to every channel</li>
+          <li>A rebuild narrative that is honest about the situation and specific about what comes next</li>
+          <li>Copy that is direct and honest. Port Vale supporters do not need the club to oversell anything to them.</li>
         </ul>
       </div>
-      <div class="skill-card">
-        <div class="skill-category">Video & Design</div>
-        <ul class="skill-list">
-          <li>Adobe Premiere Pro</li><li>Adobe Creative Suite</li><li>Canva & Photoshop</li>
-          <li>Short-form editing</li><li>Vertical video</li><li>Graphic production</li>
-        </ul>
+    </div>
+    <div>
+      <div class="section-head">
+        <div class="section-eyebrow">Recommendations</div>
+        <div class="section-title">Four practical moves</div>
       </div>
-      <div class="skill-card">
-        <div class="skill-category">Analytics</div>
-        <ul class="skill-list">
-          <li>Hootsuite</li><li>Google Analytics</li><li>A/B testing</li>
-          <li>Performance tracking</li><li>Insight reporting</li>
-        </ul>
-      </div>
-      <div class="skill-card">
-        <div class="skill-category">Content</div>
-        <ul class="skill-list">
-          <li>Caption writing & CTAs</li><li>Trend spotting</li><li>Reactive content</li>
-          <li>Content calendars</li><li>Multilingual copy</li><li>Partner publishing</li>
-        </ul>
+      <div class="card">
+        <div class="rec-item">
+          <div class="rec-num">01</div>
+          <div class="rec-text"><strong>Document Vale Park properly.</strong> Apply the same photographic care to the ground that the kit content gets. The light on the terraces, the matchday atmosphere. Nobody else has that ground.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-num">02</div>
+          <div class="rec-text"><strong>Go deeper on sponsor storytelling.</strong> Kit posts show where the logo sits. A short feature on what a partnership actually means to the club earns more goodwill and makes sponsors feel the relationship is worth renewing.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-num">03</div>
+          <div class="rec-text"><strong>Partner with football content creators.</strong> Ground-hopping accounts, lower-league YouTube channels, and fan journey creators are a low-cost route to audiences the club's own feed will never reach on its own.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-num">04</div>
+          <div class="rec-text"><strong>Post monthly community impact content on LinkedIn.</strong> One story, one partner, real outcomes. That is how you build the next commercial relationship before the conversation even begins.</div>
+        </div>
       </div>
     </div>
   </div>
-</section>
 
-<section id="story">
-  <div class="container">
-    <div class="section-label">Background</div>
-    <h2 class="section-title">The story so far</h2>
-    <div class="divider"></div>
-    <div class="timeline">
-      <div class="tl-item">
-        <div class="tl-period">Sep 2025 – Present</div>
-        <div class="tl-role">MSc Marketing & Strategy</div>
-        <div class="tl-org">Warwick Business School</div>
-        <div class="tl-desc">Currently at Warwick doing an MSc in Marketing & Strategy. Elected Publicity Officer for the Warwick Postgraduate Society — which means I run their communications and social presence. Also doing structured case work with the Consulting Society, which keeps the analytical side sharp.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-period">Sep 2022 – Feb 2025</div>
-        <div class="tl-role">Marketing & Communications Executive</div>
-        <div class="tl-org">Axios International, Dubai</div>
-        <div class="tl-desc">2.5 years publishing, editing and optimising social content for 23+ global clients. The numbers: 1,200% YoY engagement growth, 20M+ impressions, 30+ videos edited in Premiere Pro, 40+ assets A/B tested, 30% cut in reporting time. Daily tools: Hootsuite, Google Analytics, Adobe Creative Suite, Canva.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-period">Mar 2022 – Jun 2022</div>
-        <div class="tl-role">Marketing Executive</div>
-        <div class="tl-org">Light of Sakina, Dubai</div>
-        <div class="tl-desc">Grew the brand's Instagram by 30% in four months through 70+ original content assets, weekly analytics reviews and a willingness to change what wasn't working.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-period">May 2021 – Dec 2021</div>
-        <div class="tl-role">Business Development Intern</div>
-        <div class="tl-org">Line Up Social Sports, Dubai</div>
-        <div class="tl-desc">Produced match data and short-form video for a football league startup. Watched it drive a 20% uplift in per-game revenue. First time I saw sport content tied directly to commercial outcomes — it's stuck with me since.</div>
-      </div>
+  <div class="divider"></div>
+
+  <!-- FUTURE BAND -->
+  <div class="section-head">
+    <div class="section-eyebrow">Looking ahead</div>
+    <div class="section-title">Relegation is a content moment too, if the channels handle it right</div>
+  </div>
+  <div class="future-band">
+    <div class="future-eyebrow">League Two · 2025–26 · the rebuild starts now</div>
+    <div class="future-title">How a club handles relegation on social media tells its supporters a lot about what kind of club it actually is.</div>
+    <div class="future-body">
+      The instinct after relegation is to post less and say less. Wait for better news. The clubs that come back well tend to do the opposite. They lean into the community. They show the work. They give supporters a reason to stay engaged before the results arrive to justify it. Port Vale's stated mission is to be at the heart of the community. That is not a difficult brief to write content for. <strong>The channels need to be honest about where the club is and specific about what the rebuild looks like.</strong> Fan content, creator partnerships, Vale Park properly documented, the @supervaleabroad community kept involved. In a difficult season these are not optional extras. They are how you keep people believing.
     </div>
   </div>
-</section>
 
-<section id="football" class="football-section">
-  <div class="container">
-    <div class="section-label">Why Chelsea</div>
-    <h2 class="section-title">Football was always the plan</h2>
-    <div class="divider"></div>
-    <div class="pitch-statement">
-      <blockquote>"Matchday content lives or dies in seconds. I've been studying that problem as a fan for years — <span>now I want to solve it from the inside.</span>"</blockquote>
-      <p>Football wasn't a career pivot. It's where I first started paying attention to social media — watching how clubs handle a 90th-minute winner, a controversial VAR call, a transfer deadline day. The best teams don't just cover what happens. They have a voice, a pace, a way of making fans feel included even when they're watching from their phone.</p>
-      <p>Chelsea's digital output is one of the best in the Premier League to study. The TikTok channel has genuine personality. The matchday content on X moves fast without losing the brand. I want to be part of building that — not just as a fan, but as someone who knows how to publish, edit and optimise content that performs.</p>
-    </div>
+  <div class="divider"></div>
 
-    <p class="obs-heading">What I've noticed — and what I'd bring</p>
-    <p class="obs-sub">Three observations from watching Chelsea's channels as both a fan and a content professional.</p>
-    <div class="observations-grid">
-      <div class="obs-card">
-        <div class="obs-label">Opportunity</div>
-        <h4>TikTok personality vs. cross-platform consistency</h4>
-        <p>Chelsea's TikTok has more personality than the Instagram feed. There's room to bring more of that energy into Reels and Stories without losing the brand — the tone gap between platforms is wider than it needs to be.</p>
-      </div>
-      <div class="obs-card">
-        <div class="obs-label">Strength</div>
-        <h4>Reactive content on X is genuinely good</h4>
-        <p>The speed of Chelsea's X account on matchday is impressive — the right meme, the right clip, the right caption at the right moment. That instinct is hard to teach. I've been watching closely to understand how they make those calls under pressure.</p>
-      </div>
-      <div class="obs-card">
-        <div class="obs-label">Idea</div>
-        <h4>Fan data capture through content, not ads</h4>
-        <p>The clubs doing fan sign-ups best aren't running banners — they're building formats (polls, prediction games, WhatsApp drops) that fans actually want to engage with. I'd want to contribute ideas in that space from day one.</p>
-      </div>
-    </div>
+  <!-- TAKEAWAY -->
+  <div class="takeaway">
+    <div class="takeaway-text">Relegation tests what a club's social channels are actually for. Port Vale's answer is the right one: community, honesty, and being specific about the place and the people. I hope the team keeps showing up that way, on the pitch and behind the scenes.</div>
   </div>
-</section>
 
-<section id="contact" class="cta-section">
-  <div class="container">
-    <div class="section-label">Get in touch</div>
-    <h2 class="section-title">Want to talk?</h2>
-    <p class="section-desc">Particularly interested in social media and content roles in sport and football. Drop me a message.</p>
-    <a href="mailto:keagan05@gmail.com" class="btn-primary">keagan05@gmail.com</a>
-    <div class="contact-grid">
-      <a class="contact-chip" href="tel:07827846103"><span>Phone</span> 07827 846103</a>
-      <a class="contact-chip" href="https://www.linkedin.com/in/keagankurien/" target="_blank"><span>LinkedIn</span> keagankurien</a>
-      <a class="contact-chip" href="https://www.instagram.com/thekeaganproject/" target="_blank"><span>Instagram</span> @thekeaganproject</a>
-      <a class="contact-chip" href="https://www.instagram.com/true.blueballer/" target="_blank"><span>Football</span> @true.blueballer</a>
-    </div>
+  <!-- CONTACT -->
+  <div class="contact-row">
+    <a class="contact-link" href="mailto:keagan05@gmail.com"><b>Email</b> keagan05@gmail.com</a>
+    <a class="contact-link" href="tel:07827846103"><b>Phone</b> 07827 846103</a>
+    <a class="contact-link" href="https://linkedin.com/in/keagankurien" target="_blank"><b>LinkedIn</b> keagankurien</a>
+    <a class="contact-link" href="https://instagram.com/true.blueballer" target="_blank"><b>Football</b> @true.blueballer</a>
   </div>
-</section>
 
-<footer>
-  <p>Keagan Kurien &mdash; Social Media &amp; Content Professional &mdash; 2026</p>
-</footer>
+</div><!-- /body-wrap -->
+</div><!-- /wrap -->
 
 <script>
-  function toggleMenu() {
-    document.getElementById('hamburger').classList.toggle('open');
-    document.getElementById('mobileMenu').classList.toggle('open');
-  }
+function toggleCard(card) {
+  const wasOpen = card.classList.contains('open');
+  document.querySelectorAll('.plat-card').forEach(c => c.classList.remove('open'));
+  if (!wasOpen) card.classList.add('open');
+}
 </script>
 </body>
 </html>
